@@ -1,4 +1,3 @@
-// DOM Elements
 const addBookmarkBtn = document.getElementById('add-bookmark-btn');
 const exportBtn = document.getElementById('export-btn');
 const exportFormatBtn = document.getElementById('export-format-btn');
@@ -20,7 +19,6 @@ const notesInput = document.getElementById('notes');
 const tagsInput = document.getElementById('tags');
 const themeToggle = document.getElementById('theme-toggle');
 
-// Define export format
 let currentExportFormat = 'html';
 
 class BookmarkManager {
