@@ -1,0 +1,455 @@
+:root {
+    --primary-color: #3498db;
+    --primary-dark: #2980b9;
+    --secondary-color: #2ecc71;
+    --secondary-dark: #27ae60;
+    --danger-color: #e74c3c;
+    --danger-dark: #c0392b;
+    --light-gray: #f5f5f5;
+    --medium-gray: #e0e0e0;
+    --dark-gray: #333;
+    --text-color: #2c3e50;
+    --background-color: #f5f5f5;
+    --card-background: #fff;
+    --border-color: #e0e0e0;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --link-color: #3498db;
+    --link-hover-color: #2980b9;
+}
+
+body.dark-mode {
+    --primary-color: #5dade2;
+    --primary-dark: #3498db;
+    --secondary-color: #2ecc71;
+    --secondary-dark: #27ae60;
+    --danger-color: #e74c3c;
+    --danger-dark: #c0392b;
+    --light-gray: #2c3e50;
+    --medium-gray: #34495e;
+    --dark-gray: #ecf0f1;
+    --text-color: #ecf0f1;
+    --background-color: #1a1a1a;
+    --card-background: #2c3e50;
+    --border-color: #34495e;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --link-color: #5dade2;
+    --link-hover-color: #3498db;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: all 0.3s ease;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px 0;
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    position: relative;
+}
+
+header h1 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+
+header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background-color: var(--light-gray);
+    transform: rotate(15deg) scale(1.1);
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.export-options {
+    display: flex;
+    gap: 10px;
+    position: relative;
+}
+
+.dropdown-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: var(--secondary-dark);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.export-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: var(--text-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.2s;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--light-gray);
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.secondary-btn {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.secondary-btn:hover {
+    background-color: var(--secondary-dark);
+}
+
+.danger-btn {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.danger-btn:hover {
+    background-color: var(--danger-dark);
+}
+
+.cancel-btn {
+    background-color: #ccc;
+    color: #333;
+}
+
+.cancel-btn:hover {
+    background-color: #bbb;
+}
+
+.filter-section {
+    background-color: var(--card-background);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.search-container {
+    display: flex;
+    gap: 10px;
+}
+
+#search-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid var(--medium-gray);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+#tag-filter {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid var(--medium-gray);
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: white;
+}
+
+.bookmarks-container {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+#bookmarks-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#bookmarks-table th, #bookmarks-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#bookmarks-table th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 500;
+}
+
+#bookmarks-table tr:nth-child(even) {
+    background-color: var(--light-gray);
+}
+
+#bookmarks-table tr:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+#bookmarks-table a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+#bookmarks-table a:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+}
+
+.bookmark-url {
+    color: var(--link-color) !important;
+}
+
+.tag {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.actions-cell {
+    display: flex;
+    gap: 10px;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    transition: color 0.3s;
+}
+
+.edit-btn:hover {
+    color: var(--primary-color);
+}
+
+.delete-btn:hover {
+    color: var(--danger-color);
+}
+
+.visit-btn:hover {
+    color: var(--secondary-color);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    position: relative;
+    background-color: var(--card-background);
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    animation: modalopen 0.3s;
+}
+
+@keyframes modalopen {
+    from {
+        opacity: 0;
+        transform: translateY(-60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #aaa;
+    transition: color 0.3s;
+}
+
+.close:hover {
+    color: var(--text-color);
+}
+
+#modal-title {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group input, .form-group textarea, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+#no-bookmarks-message {
+    text-align: center;
+    padding: 30px;
+    color: #666;
+    font-style: italic;
+}
+
+@media screen and (max-width: 768px) {
+    .actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .search-container {
+        flex-direction: column;
+    }
+    
+    #bookmarks-table thead {
+        display: none;
+    }
+    
+    #bookmarks-table, #bookmarks-table tbody, #bookmarks-table tr, #bookmarks-table td {
+        display: block;
+        width: 100%;
+    }
+    
+    #bookmarks-table tr {
+        margin-bottom: 15px;
+        border: 1px solid var(--medium-gray);
+        border-radius: 4px;
+    }
+    
+    #bookmarks-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        border-bottom: 1px solid var(--medium-gray);
+    }
+    
+    #bookmarks-table td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 5% auto;
+    }
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmark Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Bookmark Manager</h1>
+            <p>Store and organize your favorite websites</p>
+            <button id="theme-toggle" class="theme-toggle" title="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </header>
+
+        <div class="actions">
+            <button id="add-bookmark-btn" class="btn primary-btn">Add Bookmark</button>
+            <div class="export-options">
+                <button id="export-btn" class="btn secondary-btn">Export Bookmarks</button>
+                <div class="export-dropdown">
+                    <button id="export-format-btn" class="btn secondary-btn dropdown-btn">
+                        <span id="selected-format">HTML</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#" data-format="html">HTML</a>
+                        <a href="#" data-format="txt">Text (TXT)</a>
+                        <a href="#" data-format="pdf">PDF</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search bookmarks...">
+                <select id="tag-filter">
+                    <option value="">All Tags</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="bookmarks-container">
+            <table id="bookmarks-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>URL</th>
+                        <th>Date Added</th>
+                        <th>Notes</th>
+                        <th>Tags</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="bookmarks-list">
+                </tbody>
+            </table>
+            <p id="no-bookmarks-message" class="hidden">No bookmarks found. Add some bookmarks to get started!</p>
+        </div>
+    </div>
+
+    <!-- Add Bookmark Modal -->
+    <div id="add-bookmark-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title">Add Bookmark</h2>
+            <form id="bookmark-form">
+                <input type="hidden" id="edit-id">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" placeholder="Website Title" required>
+                </div>
+                <div class="form-group">
+                    <label for="url">URL</label>
+                    <input type="url" id="url" placeholder="https://example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="notes">Notes</label>
+                    <textarea id="notes" placeholder="Add some notes about this bookmark"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="tags">Tags (comma separated)</label>
+                    <input type="text" id="tags" placeholder="work, research, personal, etc.">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn primary-btn">Save</button>
+                    <button type="button" class="btn cancel-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- jsPDF Library for PDF export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+</body>
+</html>
